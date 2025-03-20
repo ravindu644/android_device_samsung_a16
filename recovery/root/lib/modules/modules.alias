@@ -215,6 +215,8 @@ alias of:N*T*Cmediatek,clock_bufferC* clkbuf
 alias platform:mtk-srclken-rc clkbuf
 alias of:N*T*Cmediatek,srclken-rc clkbuf
 alias of:N*T*Cmediatek,srclken-rcC* clkbuf
+alias of:N*T*Csamsung,sec_auth_sle956681 sec_auth_sle956681
+alias of:N*T*Csamsung,sec_auth_sle956681C* sec_auth_sle956681
 alias of:N*T*Cmediatek,extcon-usb extcon_mtk_usb
 alias of:N*T*Cmediatek,extcon-usbC* extcon_mtk_usb
 alias of:N*T*Cmediatek,usb_meta meta
@@ -298,8 +300,6 @@ alias of:N*T*Cmediatek,mt6779-uart-dma mtk_uart_apdma
 alias of:N*T*Cmediatek,mt6779-uart-dmaC* mtk_uart_apdma
 alias of:N*T*Cmediatek,mt6765-cqdma mtk_cqdma
 alias of:N*T*Cmediatek,mt6765-cqdmaC* mtk_cqdma
-alias of:N*T*Cgoodix,fingerprint fingerprint
-alias of:N*T*Cgoodix,fingerprintC* fingerprint
 alias i2c:sm5461-charger sm5461_charger
 alias i2c:sm5461-charger-sub sm5461_charger
 alias of:N*T*Csiliconmitus,sm5461 sm5461_charger
@@ -710,6 +710,8 @@ alias of:N*T*Cmediatek,mt6577-uart 8250_mtk
 alias of:N*T*Cmediatek,mt6577-uartC* 8250_mtk
 alias of:N*T*Csamsung,vib-info vibrator_vib_info
 alias of:N*T*Csamsung,vib-infoC* vibrator_vib_info
+alias of:N*T*Csamsung,sec_auth_ds28e30 sec_auth_ds28e30
+alias of:N*T*Csamsung,sec_auth_ds28e30C* sec_auth_ds28e30
 alias of:N*T*Cmediatek,mt6323-rtc rtc_mt6397
 alias of:N*T*Cmediatek,mt6323-rtcC* rtc_mt6397
 alias of:N*T*Cmediatek,mt6358-rtc rtc_mt6397
@@ -862,6 +864,7 @@ alias of:N*T*Cmediatek,mt6358-auxadc mt635x_auxadc
 alias of:N*T*Cmediatek,mt6358-auxadcC* mt635x_auxadc
 alias of:N*T*Cmediatek,mt6359p-auxadc mt635x_auxadc
 alias of:N*T*Cmediatek,mt6359p-auxadcC* mt635x_auxadc
+alias i2c:sec-nfc nfc_slsi_sec
 alias of:N*T*Cmediatek,mt63xx-debug mt63xx_debug
 alias of:N*T*Cmediatek,mt63xx-debugC* mt63xx_debug
 alias of:N*T*Cmediatek,mt6873-mdpm mtk_mdpm

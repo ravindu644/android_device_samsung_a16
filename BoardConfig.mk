@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/samsung/a15
+DEVICE_PATH := device/samsung/a16
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -78,7 +78,7 @@ BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 11739856896
 TARGET_BOARD_PLATFORM := mt6789
 
 # touchscreen
-TW_LOAD_VENDOR_MODULES := "zt7650m_ts.ko focaltech_ts_ft3418.ko"
+TW_LOAD_VENDOR_MODULES := "focaltech_ts_ft3419.ko"
 
 # PRODUCT_COPY_FILES directives.
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
@@ -118,7 +118,7 @@ TW_INCLUDE_FBE_METADATA_DECRYPT := false
 BOARD_USES_METADATA_PARTITION := true
 
 # TWRP Configuration
-TW_DEVICE_VERSION := hunter_a15
+TW_DEVICE_VERSION := hunter_a15_port_a16
 TWRP_EVENT_LOGGING := true
 TW_INCLUDE_LPTOOLS := true
 TW_INCLUDE_REPACKTOOLS := true
