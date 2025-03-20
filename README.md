@@ -1,4 +1,4 @@
-# Android device tree for samsung SM-A155F (a15)
+# Android device tree for samsung SM-A165F (a16)
 
 ```
 #
@@ -12,7 +12,7 @@
 
 ```
 . build/envsetup.sh
-lunch twrp_a15-eng
+lunch twrp_a16-eng
 mka recoveryimage
 ```
 
