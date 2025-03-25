@@ -18,4 +18,4 @@ mka recoveryimage
 
 ## Device picture :
 
-![images](https://github.com/user-attachments/assets/f79623dd-58ae-4544-9150-f2799afbb7b8)
+![A16LTE-COVER-1](https://github.com/user-attachments/assets/de0297fb-f051-4597-b9ad-db9919e39ee9)
