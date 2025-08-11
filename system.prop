@@ -8,4 +8,4 @@ ro.boot.boot_devices=bootdevice,soc/11270000.ufshci,11270000.ufshci
 ro.sys.usb.storage.type=mtp
 persist.service.adb.enable=1
 persist.service.debuggable=1
-persist.sys.usb.config=mtp
+persist.sys.usb.config=mtp,adb
