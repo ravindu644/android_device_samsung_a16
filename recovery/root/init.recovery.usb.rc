@@ -55,3 +55,32 @@ on boot
     write /sys/module/usb_f_mtp/parameters/mtp_rx_cont 1
     chmod 0664 /sys/class/android_usb/android0/iSerial
     chown root system /sys/class/android_usb/android0/iSerial
+
+# when sys.usb.config=adb, run this
+on property:sys.usb.config=adb
+    start adbd
+
+on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
+
+    setprop vendor.usb.state ${sys.usb.config}
+
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb"
+    write /config/usb_gadget/g1/idProduct 0x6860
+    write /config/usb_gadget/g1/idVendor 0x04e8
+    write /config/usb_gadget/g1/os_desc/use 1
+    write /sys/class/udc/${vendor.usb.controller}/device/saving 1
+
+    # NUKE STEP: Delete any pre-existing function links to ensure a clean slate.
+    rm /config/usb_gadget/g1/configs/b.1/ffs.adb
+    rm /config/usb_gadget/g1/configs/b.1/ffs.mtp
+    rm /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
+    rm /config/usb_gadget/g1/configs/b.1/ss_mon.etc
+
+    # Enabling part
+    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/ffs.adb
+
+    # Syncing path
+    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
+
+    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
