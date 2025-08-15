@@ -84,3 +84,55 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
 
     write /config/usb_gadget/g1/UDC ${sys.usb.controller}
     setprop sys.usb.state ${sys.usb.config}
+
+# MTP mode
+on property:sys.usb.config=mtp
+    setprop vendor.usb.state ${sys.usb.config}
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp"
+    write /config/usb_gadget/g1/idProduct 0x6860
+    write /config/usb_gadget/g1/idVendor 0x04E8
+    write /config/usb_gadget/g1/os_desc/use 1
+    write /sys/class/udc/${vendor.usb.controller}/device/saving 1
+
+    # NUKE STEP: Delete any pre-existing function links to ensure a clean slate.
+    rm /config/usb_gadget/g1/configs/b.1/ffs.adb
+    rm /config/usb_gadget/g1/configs/b.1/ffs.mtp
+    rm /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
+    rm /config/usb_gadget/g1/configs/b.1/ss_mon.etc
+
+    # Link functions: Original OEM
+    symlink /config/usb_gadget/g1/functions/ffs.mtp /config/usb_gadget/g1/configs/b.1/ffs.mtp
+    symlink /config/usb_gadget/g1/functions/ss_mon.mtp /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
+    symlink /config/usb_gadget/g1/functions/ss_mon.etc /config/usb_gadget/g1/configs/b.1/ss_mon.etc
+
+    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
+    write /config/usb_gadget/g1/UDC ${vendor.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
+
+# MTP + ADB mode
+on property:sys.usb.config=mtp,adb
+    start adbd
+
+on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
+    setprop vendor.usb.state ${sys.usb.config}
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "mtp_adb_hid_storage"
+    write /config/usb_gadget/g1/idProduct 0x6860
+    write /config/usb_gadget/g1/idVendor 0x04E8
+    write /config/usb_gadget/g1/os_desc/use 1
+    write /sys/class/udc/${vendor.usb.controller}/device/saving 1
+
+    # NUKE STEP: Delete any pre-existing function links to ensure a clean slate.
+    rm /config/usb_gadget/g1/configs/b.1/ffs.adb
+    rm /config/usb_gadget/g1/configs/b.1/ffs.mtp
+    rm /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
+    rm /config/usb_gadget/g1/configs/b.1/ss_mon.etc    
+
+    # Link functions: Original OEM
+    symlink /config/usb_gadget/g1/functions/ffs.mtp /config/usb_gadget/g1/configs/b.1/ffs.mtp
+    symlink /config/usb_gadget/g1/functions/ss_mon.mtp /config/usb_gadget/g1/configs/b.1/ss_mon.mtp
+    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/ffs.adb
+    symlink /config/usb_gadget/g1/functions/ss_mon.etc /config/usb_gadget/g1/configs/b.1/ss_mon.etc
+
+    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
+    write /config/usb_gadget/g1/UDC ${vendor.usb.controller}
+    setprop sys.usb.state ${sys.usb.config}
