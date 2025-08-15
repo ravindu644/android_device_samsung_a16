@@ -24,6 +24,13 @@ on post-fs
 
     mkdir /config/usb_gadget/g1/configs/b.1
     mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409
+    write /config/usb_gadget/g1/configs/b.1/bmAttributes 0x80
+    write /config/usb_gadget/g1/configs/b.1/MaxPower 500    
+
+    # USB device class information
+    write /config/usb_gadget/g1/bDeviceClass 0x00
+    write /config/usb_gadget/g1/bDeviceSubClass 0x00  
+    write /config/usb_gadget/g1/bDeviceProtocol 0x00    
 
     # Begin creating functions
 
