@@ -1,1 +1,3 @@
-
+on fs
+    mkdir /config
+    mount configfs none /config
