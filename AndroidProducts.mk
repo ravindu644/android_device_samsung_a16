@@ -5,7 +5,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/pb_a16.mk
+    $(LOCAL_DIR)/twrp_a16.mk
 
 COMMON_LUNCH_CHOICES := \
-    pb_a16-eng
+    twrp_a16-eng
