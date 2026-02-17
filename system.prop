@@ -1,9 +1,8 @@
 ro.display.series=Samsung Galaxy A16
+ro.producto.tablero=a16
 ro.boot.dynamic_partitions=true
 sys.usb.config=mtp
-ro.boot.boot_devices=bootdevice,soc/11270000.ufshci,11270000.ufshci
 
-# MTP FIX
 # USB MTP
 ro.sys.usb.storage.type=mtp
 persist.service.adb.enable=1
